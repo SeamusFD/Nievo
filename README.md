@@ -1,5 +1,5 @@
 <h1 align="center">
-<a href='#'><img src="https://raw.githubusercontent.com/catppuccin/catppuccin/main/assets/palette/macchiato.png" width="600px"/></a>
+<a href='#'><img src="https://raw.githubusercontent.com/catppuccin/catppuccin/main/assets/palette/mocha.png" width="600px"/></a>
   <br>
   <br>
   <div>
@@ -7,7 +7,7 @@
         <img src="https://img.shields.io/github/issues/redyf/Neve?color=fab387&labelColor=303446&style=for-the-badge">
     </a>
     <a href="https://github.com/SeamusFD/Nievo/stargazers">
-        <img src="https://img.shields.io/github/stars/redyf/Neve?color=ca9ee6&labelColor=303446&style=for-the-badge">
+        <img src="https://img.shields.io/github/stars/SeamusFD/Nievo?color=ca9ee6&labelColor=303446&style=for-the-badge">
     </a>
     <a href="https://github.com/SeamusFD/Nievo">
         <img src="https://img.shields.io/github/repo-size/SeamusFD/Nievo?color=ea999c&labelColor=303446&style=for-the-badge">
