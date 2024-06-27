@@ -39,8 +39,6 @@
 
       (mini-module { name = "mini.indentscope"; })
 
-      (mini-module { name = "mini.surround"; })
-
       (mini-module { name = "mini.trailspace"; })
 
       {

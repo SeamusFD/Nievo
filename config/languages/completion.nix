@@ -26,12 +26,14 @@ in
         cmp-buffer
         cmp-nvim-lua
         cmp-path
+        cmp-treesitter
+        cmp-spell
         copilot-cmp
         cmp_luasnip
+        nvim-autopairs
         # Snippets
         luasnip
-        friendly-snippets
-        # Extra
+        friendly-snippets # Extra
         nvim-navic
       ];
       event = [ "BufReadPre" "BufNewFile" ];
@@ -88,9 +90,45 @@ in
           end
 
           local cmp = require("cmp")
+          local cmp_autopairs = require("nvim-autopairs.completion.cmp")
+
+          cmp.event:on(
+            'confirm_done',
+            cmp_autopairs.on_confirm_done()
+          )
 
           local lspkind = require("lspkind")
-          lspkind.init()
+          lspkind.init({
+            mode = "symbol_text",
+            preset = "codicons",
+            symbol_map = {
+                  Text = "󰉿",
+                  Method = "󰆧",
+                  Function = "󰊕",
+                  Constructor = "",
+                  Field = "󰜢",
+                  Variable = "󰀫",
+                  Class = "󰠱",
+                  Interface = "",
+                  Module = "",
+                  Property = "󰜢",
+                  Unit = "󰑭",
+                  Value = "󰎠",
+                  Enum = "",
+                  Keyword = "󰌋",
+                  Snippet = "",
+                  Color = "󰏘",
+                  File = "󰈙",
+                  Reference = "󰈇",
+                  Folder = "󰉋",
+                  EnumMember = "",
+                  Constant = "󰏿",
+                  Struct = "󰙅",
+                  Event = "",
+                  Operator = "󰆕",
+                  TypeParameter = "",
+                },
+            })
 
           local luasnip = require("luasnip")
           require("luasnip.loaders.from_vscode").lazy_load()
@@ -101,11 +139,14 @@ in
                 with_text = true,
                 maxwidth = 60,
                 menu = {
-                  buffer = "[buffer ]",
-                  luasnip = "[snip ]",
-                  nvim_lsp = "[LSP ]",
-                  nvim_lua = "[API ]",
-                  path = "[path 練]",
+                  buffer = "[﬘]",
+                  luasnip = "[]",
+                  nvim_lsp = "[]",
+                  nvim_lua = "[]",
+                  path = "[]",
+                  copilot = "[]",
+                  treesitter = "[]",
+                  spell = "[󰓆]",
                 },
               }),
             },
@@ -144,12 +185,22 @@ in
               end, { "i", "s" }),
             },
             sources = cmp.config.sources({
-              { name = "luasnip", keyword_length = 2 },
-              { name = "nvim_lsp" },
-              { name = "path" },
+              { name = "nvim_lsp", priority = 1, group_index = 1 },
+              { name = "copilot", priority = 2, group_index = 1 },
+              { name = "luasnip", keyword_length = 2 , group_index = 2  },
+              { name = "treesitter", group_index = 2 },
+              { name = "spell", group_index = 2, option = {
+                keep_all_entries = false,
+                enable_in_context = function()
+                    return true
+                end,
+                preselect_correct_word = true,
+              }},
+              { name = "path", group_index = 2  },
             }, {
-              { name = "buffer", keyword_length = 3 },
+              { name = "buffer", group_index = 1, keyword_length = 3 },
             }),
+
             snippet = {
               expand = function(args)
                 luasnip.lsp_expand(args.body)
@@ -202,7 +253,6 @@ in
       sign({ name = "DiagnosticSignWarn", text = "▲" })
       sign({ name = "DiagnosticSignHint", text = "⚑" })
       sign({ name = "DiagnosticSignInfo", text = "" })
-
       vim.diagnostic.config({
         -- Enable warnings inline.
         virtual_text = true,
@@ -267,28 +317,28 @@ in
 
             -- Add mappings
             ${mapping "Rename" "<leader>rn" "rename"}
-            ${mapping "Code action" "<leader>ca" "code_action"}
+            ${mapping "Code Action" "<leader>ca" "code_action"}
 
-            ${mapping "Goto definition" "gd" "definition"}
-            ${mapping "Goto declaration" "gD" "declaration"}
-            ${mapping "Goto implementation" "gi" "implementation"}
-            ${mapping "Goto type definition" "gtd" "type_definition"}
-            ${mapping "Goto references" "gr" "references"}
+            ${mapping "Goto Definition" "gd" "definition"}
+            ${mapping "Goto Declaration" "gD" "declaration"}
+            ${mapping "Goto Implementation" "gi" "implementation"}
+            ${mapping "Goto Type Definition" "gtd" "type_definition"}
+            ${mapping "Goto References" "gr" "references"}
 
-            ${mapping "Hover documentation" "K" "hover"}
-            ${mapping "Signature documentation" "<C-k>" "signature_help"}
+            ${mapping "Hover Documentation" "K" "hover"}
+            ${mapping "Signature Documentation" "<C-k>" "signature_help"}
 
-            ${mapping "Workspace add folder" "<leader>wa" "add_workspace_folder"}
-            ${mapping "Workspace remove folder" "<leader>wr" "remove_workspace_folder"}
+            ${mapping "Workspace Add Folder" "<leader>wa" "add_workspace_folder"}
+            ${mapping "Workspace Remove Folder" "<leader>wr" "remove_workspace_folder"}
             ${rawMapping "Workspace list folders" "<leader>wl" (lua ''
               function()
                 print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
               end
             '')}
 
-            ${mapping "Format" "<leader>f" "format"}
+            ${mapping "Format" "<leader>ff" "format"}
 
-            ${rawMapping "Format and save" "<leader>F" (lua ''
+            ${rawMapping "Format and Save" "<leader>fF" (lua ''
               function()
                 vim.lsp.buf.format()
                 vim.api.nvim_command("write")

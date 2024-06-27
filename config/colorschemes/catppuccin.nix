@@ -56,7 +56,7 @@
       keys = {
         __raw = ''
           {
-            { "<leader>l", "<CMD>Lazy<cr>", desc = "[L]azy" },
+            { "<leader>l", "<CMD>Lazy<cr>", desc = "Lazy Menu" },
           }
         '';
       };

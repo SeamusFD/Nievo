@@ -1,5 +1,5 @@
 <h1 align="center">
-<a href='#'><img src="https://raw.githubusercontent.com/catppuccin/catppuccin/main/assets/palette/mocha.png" width="600px"/></a>
+<a href='#'><img src="https://raw.githubusercontent.com/catppuccin/catppuccin/main/assets/palette/macchiato.png" width="600px"/></a>
   <br>
   <br>
   <div>

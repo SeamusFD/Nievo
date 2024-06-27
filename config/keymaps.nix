@@ -18,7 +18,7 @@
       key = "<leader>br";
       action = "<cmd>BufferLineCloseRight<cr>";
       options = {
-        desc = "Delete buffers to the right";
+        desc = "Delete Buffers to the Right";
       };
     }
     {
@@ -26,7 +26,7 @@
       key = "<leader>bo";
       action = "<cmd>BufferLineCloseOthers<cr>";
       options = {
-        desc = "Delete other buffers";
+        desc = "Delete Other Buffers";
       };
     }
 
@@ -35,7 +35,7 @@
       key = "<leader>bp";
       action = "<cmd>BufferLineTogglePin<cr>";
       options = {
-        desc = "Toggle pin";
+        desc = "Toggle Pin";
       };
     }
 
@@ -44,7 +44,7 @@
       key = "<leader>bP";
       action = "<Cmd>BufferLineGroupClose ungrouped<CR>";
       options = {
-        desc = "Delete non-pinned buffers";
+        desc = "Delete Non-Pinned Buffers";
       };
     }
     {
@@ -52,7 +52,7 @@
       key = "<leader>bl";
       action = "<cmd>BufferLineCloseLeft<cr>";
       options = {
-        desc = "Delete buffers to the left";
+        desc = "Delete Buffers to the Left";
       };
     }
     {

@@ -29,5 +29,10 @@
         }
       '';
     }
+    {
+      pkg = nvim-cursorline;
+      event = "VeryLazy";
+      config = true;
+    }
   ];
 }

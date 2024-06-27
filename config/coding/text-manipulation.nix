@@ -13,10 +13,10 @@ in
       pkg = comment-nvim;
       config = true;
       keys = mkLazyKeys [
-        { lhs = "gb"; mode = "v"; desc = "Toggle blockwise comment"; }
-        { lhs = "gc"; mode = "v"; desc = "Toggle linewise comment"; }
-        { lhs = "gbb"; desc = "Toggle blockwise comment"; }
-        { lhs = "gcc"; desc = "Toggle linewise comment"; }
+        { lhs = "gb"; mode = "v"; desc = "Toggle Blockwise Comment"; }
+        { lhs = "gc"; mode = "v"; desc = "Toggle Linewise Comment"; }
+        { lhs = "gbb"; desc = "Toggle Blockwise Comment"; }
+        { lhs = "gcc"; desc = "Toggle Linewise Comment"; }
       ];
     }
     {
@@ -35,6 +35,11 @@ in
     {
       pkg = nvim-surround;
       event = [ "InsertEnter" ];
+      config = true;
+    }
+    {
+      pkg = yanky-nvim;
+      event = "VeryLazy";
       config = true;
     }
   ];

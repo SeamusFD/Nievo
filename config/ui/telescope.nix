@@ -23,26 +23,29 @@ in
         telescope-fzf-native-nvim
         telescope-undo-nvim
         telescope-zoxide
+        telescope-symbols-nvim
       ];
       cmd = [ "Telescope" ];
       keys = mkLazyKeys [
-        (searchmap "Search recently opened files" "<space>" "oldfiles")
-        (searchmap "Resume telescope" "r" "resume")
-        (searchmap "Search buffers" "sb" "buffers")
-        (searchmap "Search files" "sf" "find_files")
-        (searchmap "Search help" "sh" "help_tags")
-        (searchmap "Search current word" "sw" "grep_string")
-        (searchmap "Search via ripgrep" "sr" "live_grep")
-        (searchmap "Search current buffer" "sc" "current_buffer_fuzzy_find")
-        (searchmap "Search diagnostics" "sd" "diagnostics")
-        (searchmap "Search quickfix" "sq" "quickfix")
-        (searchmap "Search jumplist" "sj" "jumplist")
-        (searchmap "Search marks" "sm" "marks")
-        (searchmap "Search git status" "sgs" "git_status")
-        (searchmap "Search document symbols" "sds" "lsp_document_symbols")
-        (searchmap "Search document references" "sdr" "lsp_references")
-        (searchmap "Search workspace symbols" "sdw" "lsp_dynamic_workspace_symbols")
-        (searchmap "Search undo tree" "su" "undo")
+        (searchmap "Search Recently Opened Files" "<space>" "oldfiles")
+        (searchmap "Resume Telescope" "tr" "resume")
+        (searchmap "Pick Symbols" "ts" "symbols")
+        (searchmap "Change Directory" "td" "zoxide list")
+        (searchmap "Search Buffers" "sb" "buffers")
+        (searchmap "Search Files" "sf" "find_files")
+        (searchmap "Search Help" "sh" "help_tags")
+        (searchmap "Search Current Word" "sw" "grep_string")
+        (searchmap "Search Via Ripgrep" "sr" "live_grep")
+        (searchmap "Search Current Buffer" "sc" "current_buffer_fuzzy_find")
+        (searchmap "Search Diagnostics" "sd" "diagnostics")
+        (searchmap "Search Quickfix" "sq" "quickfix")
+        (searchmap "Search Jumplist" "sj" "jumplist")
+        (searchmap "Search Marks" "sm" "marks")
+        (searchmap "Search Git status" "sgs" "git_status")
+        (searchmap "Search Document symbols" "sds" "lsp_document_symbols")
+        (searchmap "Search Document references" "sdr" "lsp_references")
+        (searchmap "Search Workspace Symbols" "sdw" "lsp_dynamic_workspace_symbols")
+        (searchmap "Search Undo Tree" "su" "undo")
       ];
       config = lua ''
         function (_, opts)
@@ -53,8 +56,20 @@ in
           require("telescope").load_extension("ui-select")
           require("telescope").load_extension("undo")
           require("telescope").load_extension("noice")
+          require("telescope").load_extension("zoxide")
+          require("telescope").load_extension("fzf")
         end
       '';
+      opts = {
+        extensions = {
+          fzf = {
+            fuzzy = true;
+            override_generic_sorter = true;
+            override_file_sorter = true;
+            case_mode = "smart_case";
+          };
+        };
+      };
     }
   ];
 }
