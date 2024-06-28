@@ -22,7 +22,6 @@
       # Enable incremental searching
       hlsearch = true;
       incsearch = true;
-
       pumblend = 10;
       pumheight = 10;
 

@@ -39,8 +39,8 @@ in
               keymaps = {
                 init_selection = "<C-space>",
                 node_incremental = "<C-space>",
-                scope_incremental = "<C-space>",
-                node_decremental = "<M-space>",
+                scope_incremental = false,
+                node_decremental = "<bs>",
               },
             },
             textobjects = {

@@ -42,5 +42,24 @@ in
       event = "VeryLazy";
       config = true;
     }
+    {
+      pkg = intellitab-nvim;
+      event = "InsertEnter";
+      lazy = true;
+    }
+    {
+      pkg = better-escape-nvim;
+      event = "InsertEnter";
+      config = ''
+        function()
+          require("better_escape").setup {
+            mapping = {"jk", "jj"},
+            timeout = 100,
+            clear_empty_lines = false,
+            keys = "<Esc>",
+          }
+        end
+      '';
+    }
   ];
 }

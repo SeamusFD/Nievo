@@ -171,7 +171,7 @@ in
                 elseif luasnip.expand_or_jumpable() then
                   luasnip.expand_or_jump()
                 else
-                  fallback()
+                  require("intellitab").indent()
                 end
               end, { "i", "s" }),
               ["<S-Tab>"] = cmp.mapping(function(fallback)
@@ -185,18 +185,18 @@ in
               end, { "i", "s" }),
             },
             sources = cmp.config.sources({
-              { name = "nvim_lsp", priority = 1, group_index = 1 },
-              { name = "copilot", priority = 2, group_index = 1 },
+              { name = "nvim_lsp", priority = 1, group_index = 1, keyword_length = 2 },
+              { name = "copilot", priority = 2, group_index = 1 , keyword_length = 2},
               { name = "luasnip", keyword_length = 2 , group_index = 2  },
-              { name = "treesitter", group_index = 2 },
-              { name = "spell", group_index = 2, option = {
+              { name = "treesitter", group_index = 2 , keyword_length = 2},
+              { name = "spell", keyword_length = 2, group_index = 2, option = {
                 keep_all_entries = false,
                 enable_in_context = function()
                     return true
                 end,
                 preselect_correct_word = true,
               }},
-              { name = "path", group_index = 2  },
+              { name = "path", group_index = 2, keyword_length = 2 },
             }, {
               { name = "buffer", group_index = 1, keyword_length = 3 },
             }),

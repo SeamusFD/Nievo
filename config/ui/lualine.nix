@@ -40,7 +40,7 @@ in
       pkg = lualine-nvim;
       dependencies = [ nvim-web-devicons nvim-navic catppuccin-nvim ];
       event = "VeryLazy";
-      opts.extensions = [ "fugitive" "neo-tree" "toggleterm" ];
+      opts.extensions = [ "fugitive" "neo-tree" "toggleterm" "lazy" ];
       opts.options = {
         section_separators = { left = ""; right = ""; };
         component_separators = { left = ""; right = ""; };

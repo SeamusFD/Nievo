@@ -33,6 +33,7 @@
               telescope = {
                 enabled = true,
               },
+              navic = { enabled = true, custom_bg = "lualine" },
               cmp = true,
               dashboard = true,
               gitsigns = true,
@@ -40,12 +41,15 @@
               treesitter = true,
               treesitter_context = true,
               markdown = true,
+              mini = true,
               notify = true,
-              lsp_trouble = false,
+              lsp_trouble = true,
               fidget = true,
-              indent_blankline = true,
+              indent_blankline = { enabled = true },
               noice = true,
               which_key = true,
+              illuminate = true,
+              semantic_tokens = true,
             },
           })
           vim.o.termguicolors = true

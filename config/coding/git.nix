@@ -78,7 +78,7 @@
       ];
       keys = {
         __raw = ''
-          { { "<leader>gg", "<CMD>LazyGit<CR>", desc = "Lazy[g]it" } }
+          { { "<leader>gg", "<CMD>LazyGit<CR>", desc = "Lazygit" } }
         '';
       };
     }

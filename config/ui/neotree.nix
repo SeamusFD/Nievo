@@ -1,13 +1,16 @@
 { pkgs, ... }:
+let
+  plug = pkgs.vimPlugins;
+in
 {
-  plugins.lazy.plugins = with pkgs.vimPlugins; [
+  plugins.lazy.plugins = [
     {
-      pkg = neo-tree-nvim;
+      pkg = plug.neo-tree-nvim;
       dependencies = [
-        plenary-nvim
-        nvim-web-devicons
-        nui-nvim
-        nvim-window-picker
+        plug.plenary-nvim
+        plug.nvim-web-devicons
+        plug.nui-nvim
+        plug.nvim-window-picker
       ];
       opts = {
         close_if_last_window = true;
@@ -18,15 +21,15 @@
           };
           git_status = {
             symbols = {
-              added = "A";
-              deleted = "D";
-              modified = "M";
-              renamed = "R";
-              untracked = "?";
-              ignored = "I";
-              unstaged = "U";
-              staged = "S";
-              conflict = "X";
+              added = "";
+              deleted = "";
+              modified = "";
+              renamed = "";
+              untracked = "";
+              ignored = "";
+              unstaged = "";
+              staged = "";
+              conflict = "";
             };
           };
         };

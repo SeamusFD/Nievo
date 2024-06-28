@@ -11,17 +11,22 @@ in
         plugins = { spelling = true; };
         defaults = {
           mode = [ "n" "v" ];
-          "g" = { name = "+goto"; _ = "which_key_ignore"; };
-          "]" = { name = "+next"; _ = "which_key_ignore"; };
-          "[" = { name = "+prev"; _ = "which_key_ignore"; };
-          "<leader>c" = { name = "+code"; _ = "which_key_ignore"; };
-          "<leader>g" = { name = "+git"; _ = "which_key_ignore"; };
-          "<leader>q" = { name = "+quit"; _ = "which_key_ignore"; };
-          "<leader>s" = { name = "+search"; _ = "which_key_ignore"; };
-          "<leader>h" = { name = "+hunk"; _ = "which_key_ignore"; };
-          "<leader>r" = { name = "+rename"; _ = "which_key_ignore"; };
-          "<leader>w" = { name = "+workspace"; _ = "which_key_ignore"; };
-          "<leader>f" = { name = "+file"; _ = "which_key_ignore"; };
+          "g" = { name = "+Goto"; _ = "which_key_ignore"; };
+          "]" = { name = "+Next"; _ = "which_key_ignore"; };
+          "[" = { name = "+Prev"; _ = "which_key_ignore"; };
+          "<leader>b" = { name = "+Buffer"; _ = "which_key_ignore"; };
+          "<leader>c" = { name = "+Code"; _ = "which_key_ignore"; };
+          "<leader>g" = { name = "+Git"; _ = "which_key_ignore"; };
+          "<leader>q" = { name = "+Quit"; _ = "which_key_ignore"; };
+          "<leader>s" = { name = "+Search"; _ = "which_key_ignore"; };
+          "<leader>h" = { name = "+Hunk"; _ = "which_key_ignore"; };
+          "<leader>r" = { name = "+Rename"; _ = "which_key_ignore"; };
+          "<leader>w" = { name = "+Workspace"; _ = "which_key_ignore"; };
+          "<leader>f" = { name = "+File"; _ = "which_key_ignore"; };
+          "<leader>x" = { name = "+Trouble"; _ = "which_key_ignore"; };
+          "<leader>t" = { name = "+Telescope"; _ = "which_key_ignore"; };
+          "<leader>u" = { name = "+UI"; _ = "which_key_ignore"; };
+          "<leader>v" = { name = "+Visibility"; _ = "which_key_ignore"; };
         };
       };
       config = ''
