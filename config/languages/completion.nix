@@ -219,7 +219,8 @@ in
     nodePackages_latest.bash-language-server
     nodePackages_latest.typescript-language-server
     nodePackages_latest.svelte-language-server
-    nodePackages_latest.svelte-check
+    # nodePackages_latest.svelte-check
+    esbuild
     vimPlugins.nvim-treesitter-parsers.svelte
     rust-analyzer
     gopls
