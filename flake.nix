@@ -2,6 +2,7 @@
   description = "Nievo is a Nixvim configuration";
 
   inputs = {
+    nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-unstable";
     nixvim.url = "github:nix-community/nixvim";
     flake-utils.url = "github:numtide/flake-utils";
   };
