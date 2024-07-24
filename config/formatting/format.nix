@@ -81,5 +81,8 @@
     prettierd
     typstfmt
     markdownlint-cli2
+    dprint
+    just
+    nodePackages_latest.prettier
   ];
 }
